@@ -9,14 +9,16 @@ public class DecodeLanguage {
 		for(int i = 0; i < list.size(); i++){
 			String s = list.get(i);
 			for(int j = 0; j < s.length()-1; j++){
-				if(!map.containsKey(String.valueOf(s.charAt(j)))){
-					map.put(String.valueOf(s.charAt(j)),new Node(String.valueOf(s.charAt(j))));
+				String val1 = String.valueOf(s.charAt(j));
+				String val2 = String.valueOf(s.charAt(j+1));
+				if(!map.containsKey(val1)){
+					map.put(val1,new Node(val1));
 				}
-				if(!map.containsKey(String.valueOf(s.charAt(j+1)))){
-					map.put(String.valueOf(s.charAt(j+1)),new Node(String.valueOf(s.charAt(j+1))));
+				if(!map.containsKey(val2)){
+					map.put(val2,new Node(val2));
 				}
-				Node node = map.get(String.valueOf(s.charAt(j)));
-				Node adj = map.get(String.valueOf(s.charAt(j+1)));
+				Node node = map.get(val1);
+				Node adj = map.get(val2);
 				node.adjacents.add(adj);
 				nodes.add(node);
 			}
