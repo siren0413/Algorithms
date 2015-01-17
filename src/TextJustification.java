@@ -14,7 +14,7 @@ public class TextJustification {
 			return 0;
 		}
 		if(dp[i] != 0) return dp[i];
-		int min = Integer.MAX_VALUE, index = i, cost = 0;
+		int min = Integer.MAX_VALUE, cost = 0;
 		for(int k = i; k < words.length; k++){
 			int len = 0;
 			for(int m = i; m <= k; m++){
@@ -28,7 +28,6 @@ public class TextJustification {
 			}
 			if(cost < min){
 				min = cost;
-				index = k;
 			}
 		}
 		dp[i] = min;
